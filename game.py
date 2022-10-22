@@ -33,11 +33,11 @@ class Game(metaclass=Singleton):
             self.clock.tick(self.frame_rate)
 
     def update(self):
-        for game_object in self.__objects:
+        for game_object in self.objects:
             game_object.update()
 
     def draw(self):
-        for game_object in self.__objects:
+        for game_object in self.objects:
             game_object.draw(self.surface)
 
     def handle_events(self):
@@ -60,7 +60,7 @@ class Game(metaclass=Singleton):
 
     def __init_pygame_components(self):
         self.game_over = False
-        self.__objects = []
+        self.objects = []
         pygame.mixer.pre_init(44100, 16, 2, 4096)
         pygame.init()
         pygame.font.init()
